@@ -9,16 +9,24 @@ import java.io.*;
  * Oio的文件操作
  * 用于小文件
  */
-public class OioFileOperater implements FileOperate {
+public class OioFileOperater implements FileOperate{
 
     private String filePath = Environment.ROOT_DIRECTORY;
+    private RandomAccessFile file;
+
+    public OioFileOperater(String fileName){
+        try {
+            file = new RandomAccessFile(filePath+File.pathSeparator+fileName, "rw");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public byte[] read(String fileName, int offset, int limit) {
         byte[] data = new byte[limit - offset];
         try{
-            RandomAccessFile randomAccessFile = new RandomAccessFile(filePath+File.pathSeparator+fileName, "r");
-            randomAccessFile.seek(offset);//将文件流的位置移动到pos字节处
-            randomAccessFile.read(data);
+            file.seek(offset);
+            file.read(data);
             return data;
         }catch (IOException e){
             e.printStackTrace();
@@ -30,10 +38,9 @@ public class OioFileOperater implements FileOperate {
     public boolean write(String fileName, int offset, int limit, byte[] data) {
         try
         {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(filePath+File.pathSeparator+fileName, "rw");
-            randomAccessFile.seek(offset);//将文件流的位置移动到pos字节处
-            randomAccessFile.write(data);
-            randomAccessFile.close();
+            file.seek(offset);
+            file.write(data);
+            file.close();
             return true;
         } catch (IOException e)
         {
@@ -42,4 +49,7 @@ public class OioFileOperater implements FileOperate {
         }
     }
 
+    private void close() throws IOException {
+        this.file.close();
+    }
 }
