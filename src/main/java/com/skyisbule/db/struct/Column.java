@@ -1,4 +1,4 @@
-package com.skyisbule.db.util;
+package com.skyisbule.db.struct;
 
 import com.skyisbule.db.config.dataType;
 import lombok.Getter;
@@ -16,6 +16,7 @@ public class Column {
     String   columnName;
     Object   value;
     Integer  maxLen;
+    Integer  nowLen;
     dataType type;
 
 }
