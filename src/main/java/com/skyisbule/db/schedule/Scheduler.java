@@ -10,7 +10,7 @@ public class Scheduler {
 
     }
 
-    public static Scheduler s = new Scheduler();
+    private static Scheduler s = new Scheduler();
 
     public Scheduler getInstance(){
         return s;
