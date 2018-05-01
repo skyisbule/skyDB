@@ -8,6 +8,7 @@ public enum  selectType {
 
     ALL,
     single,
-    many
+    many,
+    part
 
 }

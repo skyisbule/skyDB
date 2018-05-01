@@ -22,8 +22,8 @@ public class OioFileOperater implements FileOperate{
         }
     }
 
-    public byte[] read(String fileName, int offset, int limit) {
-        byte[] data = new byte[limit - offset];
+    public byte[] read(String fileName, int offset, int len) {
+        byte[] data = new byte[len];
         try{
             file.seek(offset);
             file.read(data);
@@ -47,6 +47,10 @@ public class OioFileOperater implements FileOperate{
             e.printStackTrace();
             return false;
         }
+    }
+
+    public int getLen() throws IOException {
+        return (int)this.file.length();
     }
 
     private void close() throws IOException {

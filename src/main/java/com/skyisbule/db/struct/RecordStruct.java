@@ -29,6 +29,10 @@ public class RecordStruct {
         this.data            = data;
     }
 
+    public RecordStruct(int recordByteLenth, int columnNum){
+        this.recordByteLenth = recordByteLenth;
+        this.columnNum       = columnNum;
+    }
 
 
 }

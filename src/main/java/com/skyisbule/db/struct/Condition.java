@@ -15,6 +15,9 @@ import java.util.ArrayList;
 @Setter
 public class Condition {
 
+    /**
+     * 查询条件
+     */
     class filter{
         String        key;
         conditionType conditionType;
@@ -24,5 +27,6 @@ public class Condition {
     String            tableName;
     ArrayList<filter> condition;
     selectType        selectType;
+    ArrayList<String> columnName;
 
 }
