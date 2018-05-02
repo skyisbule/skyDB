@@ -59,6 +59,7 @@ public class selectExector {
                 byte[] res;
                 res = operater.read(tableName,blocknum*singleReadLen*READ_COLUMN_NUM,couldRead * singleReadLen);
                 byteToColumn(tableName,result,res,READ_COLUMN_NUM,columnNum,singleReadLen);
+                break;
             }
         }
 
